@@ -1,4 +1,13 @@
 #!/usr/bin/python3
+"""
+Determines if all boxes can be opened.
+
+Args:
+    boxes (List[List[int]]): A list of lists representing locked boxes and their keys.
+Returns:
+    bool: True if all boxes can be opened, else False.
+"""
+
 
 def canUnlockAll(boxes):
     """
@@ -9,18 +18,16 @@ def canUnlockAll(boxes):
     Returns:
         bool: True if all boxes can be opened, else False.
     """
-    if not boxes:
-        return False
-    
     n = len(boxes)
-    keys = set([0])  # Start with the key for the first box.
-    stack = [0]  # Start with the first box in the stack.
+    visited_boxes = [False] * n
+    visited_boxes[0] = True
+    stack = [0]
 
     while stack:
         current_box = stack.pop()
         for key in boxes[current_box]:
-            if key < n and key not in keys:
-                keys.add(key)
+            if not visited_boxes[key]:
+                visited_boxes[key] = True
                 stack.append(key)
 
-    return len(keys) == n
+    return all(visited_boxes)
