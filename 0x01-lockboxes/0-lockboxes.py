@@ -3,7 +3,8 @@
 Determines if all boxes can be opened.
 
 Args:
-    boxes (List[List[int]]): A list of lists representing locked boxes and their keys.
+    boxes (List[List[int]]): A list of lists representing
+    locked boxes and their keys.
 Returns:
     bool: True if all boxes can be opened, else False.
 """
@@ -14,7 +15,8 @@ def canUnlockAll(boxes):
     Determines if all boxes can be opened.
 
     Args:
-        boxes (List[List[int]]): A list of lists representing locked boxes and their keys.
+        boxes (List[List[int]]): A list of lists representing
+        locked boxes and their keys.
     Returns:
         bool: True if all boxes can be opened, else False.
     """
