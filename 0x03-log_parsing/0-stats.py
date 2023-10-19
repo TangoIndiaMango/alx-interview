@@ -41,8 +41,12 @@ try:
                 if value != 0:
                     print('{}: {}'.format(key, value))
 
-except Exception as err:
-    pass
+except KeyboardInterrupt as err:
+    print('File size: {}'.format(total_size))
+    for key, value in sorted(status_codes_dict.items()):
+        if value != 0:
+            print('{}: {}'.format(key, value))
+    print(err)
 
 finally:
     print('File size: {}'.format(total_size))
