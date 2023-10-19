@@ -5,6 +5,7 @@ and prints stats to stdout
 
 
 import sys
+import signal
 
 # Status codes dictionary
 status_codes_dict = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
@@ -12,6 +13,18 @@ status_codes_dict = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
 
 total_size = 0
 count = 0  # Line counter
+
+def update_statistics():
+    print('Total file size:', total_size)
+    for key in sorted(status_codes_dict):
+        if status_codes_dict[key] > 0:
+            print(f'{key}: {status_codes_dict[key]}')
+
+def handle_interrupt(signum, frame):
+    update_statistics()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_interrupt)
 
 try:
     for line in sys.stdin:
@@ -34,18 +47,11 @@ try:
 
         if count == 10:
             count = 0  # Reset the counter
-            print('File size: {}'.format(total_size))
-
-            # Print out status code counts
-            for key, value in sorted(status_codes_dict.items()):
-                if value != 0:
-                    print('{}: {}'.format(key, value))
+            update_statistics()
 
 except KeyboardInterrupt:
-    pass
+    # Handle KeyboardInterrupt (CTRL+C)
+    update_statistics()
 
 finally:
-    print('File size: {}'.format(total_size))
-    for key, value in sorted(status_codes_dict.items()):
-        if value != 0:
-            print('{}: {}'.format(key, value))
+    update_statistics()
