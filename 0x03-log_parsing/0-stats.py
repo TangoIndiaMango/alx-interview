@@ -15,7 +15,7 @@ count = 0  # line counter
 
 try:
     for line in sys.stdin:
-        line_list = line.split()
+        line_list = line.split(" ")
 
         if len(line_list) > 4:
             status_code = line_list[-2]
@@ -32,7 +32,7 @@ try:
             # update line counter
             count += 1
 
-        if count % 10 == 0:
+        if count == 10:
             count = 0  # reset counter
             print('File size: {}'.format(total_size))
 
@@ -41,12 +41,8 @@ try:
                 if value != 0:
                     print('{}: {}'.format(key, value))
 
-except KeyboardInterrupt as err:
-    print('File size: {}'.format(total_size))
-    for key, value in sorted(status_codes_dict.items()):
-        if value != 0:
-            print('{}: {}'.format(key, value))
-    print(err)
+except Exception as err:
+    pass
 
 finally:
     print('File size: {}'.format(total_size))
