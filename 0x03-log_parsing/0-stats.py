@@ -17,7 +17,7 @@ try:
     for line in sys.stdin:
         line_list = line.split()
 
-        if len(line_list) > 6:
+        if len(line_list) > 4:
             status_code = line_list[-2]
             file_size = int(line_list[-1])
 
