@@ -15,9 +15,9 @@ count = 0  # line counter
 
 try:
     for line in sys.stdin:
-        line_list = line.split(" ")
+        line_list = line.split()
 
-        if len(line_list) > 4:
+        if len(line_list) > 6:
             status_code = line_list[-2]
             file_size = int(line_list[-1])
 
@@ -32,7 +32,7 @@ try:
             # update line counter
             count += 1
 
-        if count == 10:
+        if count % 10 == 0:
             count = 0  # reset counter
             print('File size: {}'.format(total_size))
 
