@@ -20,7 +20,7 @@ def validUTF8(data):
     # Iterate through the list of integers
     for byte in data:
         # Check if the byte is within the valid range (0 to 255)
-        if byte < 0 or byte > 255:
+        if byte < 0:
             return False
 
         # If we are not in the middle of processing a multi-byte character
