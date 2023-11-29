@@ -4,7 +4,6 @@ This function returns the perimeter
 of an island described in grid
 """
 
-
 def island_perimeter(grid):
     """
     Args: grid which is a list
@@ -14,6 +13,8 @@ def island_perimeter(grid):
     """
     # initialize a set to keep track of
     # the spot we've touched
+
+    
     visit = set()
 
     """
