@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
 This function returns the perimeter
 of an island described in grid
@@ -12,7 +12,6 @@ def island_perimeter(grid):
     Returns: An integer, which is the perimeter
           of the island
     """
-    
     # initialize a set to keep track of
     # the spot we've touched
     visit = set()
