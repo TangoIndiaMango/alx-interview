@@ -12,10 +12,12 @@ def island_perimeter(grid):
     Returns: An integer, which is the perimeter
           of the island
     """
+
+    if all(all(cell == 0 for cell in row) for row in grid):
+        return 0
     # initialize a set to keep track of
     # the spot we've touched
     visit = set()
-
     """
     this function help us with our boundries
     """
