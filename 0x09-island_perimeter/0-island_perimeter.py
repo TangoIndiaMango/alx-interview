@@ -13,6 +13,7 @@ def island_perimeter(grid):
           of the island
     """
 
+    # handles when all are 0
     if all(all(cell == 0 for cell in row) for row in grid):
         return 0
     # initialize a set to keep track of
