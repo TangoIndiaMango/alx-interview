@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 This function determines a winner
 from two people who take turns in
