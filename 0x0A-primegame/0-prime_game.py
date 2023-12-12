@@ -5,6 +5,16 @@ from two people who take turns in
 choosing a prime number
 """
 
+def remove_multiple_prime_numbers(ls, n):
+    """
+    ls -> a list of numbers
+    n -> valid integer
+    """
+    for i in range(2, len(ls)):
+        try:
+            ls[n * i] = 0
+        except (ValueError, IndexError):
+            break
 
 def isWinner(x, nums):
     """
@@ -36,15 +46,3 @@ def isWinner(x, nums):
         return "Maria"
     else:
         return None
-
-
-def remove_multiple_prime_numbers(ls, n):
-    """
-    ls -> a list of numbers
-    n -> valid integer
-    """
-    for i in range(2, len(ls)):
-        try:
-            ls[n * i] = 0
-        except (ValueError, IndexError):
-            break
