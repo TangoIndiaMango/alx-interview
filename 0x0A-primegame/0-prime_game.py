@@ -15,7 +15,7 @@ def remove_multiple_prime_numbers(ls, n):
     for i in range(2, len(ls)):
         try:
             ls[n * i] = 0
-        except IndexError:
+        except Exception as e:
             break
 
 def isWinner(x, nums):
